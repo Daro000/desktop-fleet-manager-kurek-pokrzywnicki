@@ -11,6 +11,14 @@
         <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
 
+
+    <ItemGroup>
+        <Content Include="Assets\vehicles.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    
+    
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.3.9" />
         <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
