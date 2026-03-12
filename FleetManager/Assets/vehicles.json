@@ -1,5 +1,107 @@
 [
   {
-    
+    "Id": "RV-001",
+    "Name": "Scania R500",
+    "Type": "Ciągnik siodłowy",
+    "FuelPercentage": 92,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-002",
+    "Name": "MAN TGX 18.440",
+    "Type": "Ciężarówka",
+    "FuelPercentage": 45,
+    "Status": "InRoute"
+  },
+  {
+    "Id": "RV-003",
+    "Name": "Volvo FH16",
+    "Type": "Ciągnik siodłowy",
+    "FuelPercentage": 10,
+    "Status": "Service"
+  },
+  {
+    "Id": "RV-004",
+    "Name": "Mercedes Actros",
+    "Type": "Ciężarówka",
+    "FuelPercentage": 68,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-005",
+    "Name": "DAF XF 480",
+    "Type": "Ciągnik siodłowy",
+    "FuelPercentage": 78,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-006",
+    "Name": "Iveco S-Way",
+    "Type": "Dostawczy",
+    "FuelPercentage": 8,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-007",
+    "Name": "Renault T High",
+    "Type": "Ciężarówka",
+    "FuelPercentage": 55,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-008",
+    "Name": "Volkswagen Crafter",
+    "Type": "Van",
+    "FuelPercentage": 100,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-009",
+    "Name": "Ford Transit",
+    "Type": "Van",
+    "FuelPercentage": 33,
+    "Status": "InRoute"
+  },
+  {
+    "Id": "RV-010",
+    "Name": "Mercedes Sprinter",
+    "Type": "Van",
+    "FuelPercentage": 71,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-011",
+    "Name": "MAN TGL 12.220",
+    "Type": "Ciężarówka",
+    "FuelPercentage": 5,
+    "Status": "Service"
+  },
+  {
+    "Id": "RV-012",
+    "Name": "Scania P360",
+    "Type": "Ciężarówka",
+    "FuelPercentage": 88,
+    "Status": "InRoute"
+  },
+  {
+    "Id": "RV-013",
+    "Name": "Volvo FL 250",
+    "Type": "Dostawczy",
+    "FuelPercentage": 14,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-014",
+    "Name": "DAF LF 230",
+    "Type": "Dostawczy",
+    "FuelPercentage": 60,
+    "Status": "Available"
+  },
+  {
+    "Id": "RV-015",
+    "Name": "Iveco Daily",
+    "Type": "Van",
+    "FuelPercentage": 42,
+    "Status": "InRoute"
   }
 ]
