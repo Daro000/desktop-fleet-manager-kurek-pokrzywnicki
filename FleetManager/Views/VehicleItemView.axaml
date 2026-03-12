@@ -1,10 +1,35 @@
-<!-- (UserControl - widok) -->
-
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="FleetManager.Views.VehicleItemView">
-    Welcome to Avalonia!
+             xmlns:vm="using:FleetManager.ViewModels"
+             x:Class="FleetManager.Views.VehicleItemView"
+             x:DataType="vm:VehicleItemViewModel">
+
+    <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
+
+        <TextBlock Text="{Binding Id}"
+                   Width="70"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Text="{Binding Name}"
+                   Width="160"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel VerticalAlignment="Center" Spacing="2">
+            <ProgressBar Minimum="0"
+                         Maximum="100"
+                         Value="{Binding Fuel}"
+                         Width="150"
+                         Height="12"
+                         Foreground="{Binding FuelColor}"/>
+            <TextBlock Text="{Binding FuelDisplay}"
+                       Foreground="{Binding FuelColor}"
+                       FontSize="11"/>
+        </StackPanel>
+
+        <TextBlock Text="{Binding Status}"
+                   Width="80"
+                   VerticalAlignment="Center"/>
+
+    </StackPanel>
+
 </UserControl>
