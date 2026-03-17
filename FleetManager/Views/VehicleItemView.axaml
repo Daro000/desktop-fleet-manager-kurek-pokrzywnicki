@@ -4,32 +4,36 @@
              x:Class="FleetManager.Views.VehicleItemView"
              x:DataType="vm:VehicleItemViewModel">
 
-    <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
+            <TextBlock Text="{Binding Id}"
+                       Width="70"
+                       VerticalAlignment="Center"/>
 
-        <TextBlock Text="{Binding Id}"
-                   Width="70"
-                   VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Name}"
+                       Width="160"
+                       VerticalAlignment="Center"/>
 
-        <TextBlock Text="{Binding Name}"
-                   Width="160"
-                   VerticalAlignment="Center"/>
+            <StackPanel VerticalAlignment="Center" Spacing="2">
+                <ProgressBar Minimum="0"
+                            Maximum="100"
+                            Value="{Binding Fuel}"
+                            Width="150"
+                            Height="12"
+                            Foreground="{Binding FuelColor}"/>
+                <TextBlock Text="{Binding FuelDisplay}"
+                           Foreground="{Binding FuelColor}"
+                           FontSize="11"/>
+            </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" Spacing="2">
-            <ProgressBar Minimum="0"
-                         Maximum="100"
-                         Value="{Binding Fuel}"
-                         Width="150"
-                         Height="12"
-                         Foreground="{Binding FuelColor}"/>
-            <TextBlock Text="{Binding FuelDisplay}"
-                       Foreground="{Binding FuelColor}"
-                       FontSize="11"/>
+            <TextBlock Text="{Binding Status}"
+                       Width="80"
+                       VerticalAlignment="Center"/>
         </StackPanel>
-
-        <TextBlock Text="{Binding Status}"
-                   Width="80"
-                   VerticalAlignment="Center"/>
-
+        <StackPanel Orientation="Horizontal">
+            <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}"/>
+            <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}"/>
+            <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}"/>
+        </StackPanel>
     </StackPanel>
-
 </UserControl>

@@ -14,14 +14,16 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <ListBox ItemsSource="{Binding Vehicles}"
-             SelectedItem="{Binding SelectedVehicle}">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <views:VehicleItemView/>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+    <StackPanel>
+        <Button Content="Zapisz wszystkie zmiany do pliku json" Command="{Binding SaveVehicleCommand}" />
     
+        <ListBox ItemsSource="{Binding Vehicles}"
+                SelectedItem="{Binding SelectedVehicle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <views:VehicleItemView/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </Window>

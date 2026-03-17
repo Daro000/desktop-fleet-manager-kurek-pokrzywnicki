@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using System.Reactive;
 using System.Text.Json;
 using FleetManager.Models;
 using FleetManager.Services;
@@ -24,11 +26,20 @@ public class MainWindowViewModel : ViewModelBase
         get => _selectedVehicle;
         set => this.RaiseAndSetIfChanged(ref _selectedVehicle, value);
     }
+    
+    
+    public ReactiveCommand<Unit, Unit> SaveVehicleCommand { get; }
 
     public MainWindowViewModel()
     {
         LoadVehiclesAsync();
+        
+        SaveVehicleCommand = ReactiveCommand.Create(SaveVehiclesToJson);
     }
+    
+    
+    
+    
 
     private async void LoadVehiclesAsync()
     {
@@ -39,14 +50,15 @@ public class MainWindowViewModel : ViewModelBase
             Vehicles.Add(new VehicleItemViewModel(vehicle));
         }
     }
-    
-    
     private void SaveVehiclesToJson()
     {
         try
         {
+            var dataToSave = Vehicles.Select(vm => vm.Model).ToList();
+            
+            
             File.WriteAllText(FilePath, JsonSerializer
-                .Serialize(Vehicles, JsonOptions ));
+                .Serialize(dataToSave, JsonOptions ));
             Console.WriteLine("Json saved!");
         }catch (Exception exception) when (exception is
                                                IOException or
