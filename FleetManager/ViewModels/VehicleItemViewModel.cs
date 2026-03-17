@@ -16,6 +16,14 @@ public class VehicleItemViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> VehicleInServiceCommand { get; }
     public ReactiveCommand<Unit, Unit> VehicleInAvailableCommand { get; }
 
+    public ReactiveCommand<Unit, Unit> RefuelVehicleCommand { get; }
+    private bool _isFuelButtonEnabled = true;
+    public bool IsFuelButtonEnabled
+    {
+        get => _isFuelButtonEnabled;
+        set => this.RaiseAndSetIfChanged(ref _isFuelButtonEnabled, value);
+    }
+
     public VehicleItemViewModel(Vehicle vehicle)
     {
         _vehicle = vehicle;
@@ -23,6 +31,10 @@ public class VehicleItemViewModel : ViewModelBase
         VehicleInServiceCommand = ReactiveCommand.Create(() => { UpdateVechicleStatus(VehicleStatus.Service); });
         VehicleInAvailableCommand = ReactiveCommand.Create(() => { UpdateVechicleStatus(VehicleStatus.Available); });
 
+
+        RefuelVehicleCommand = ReactiveCommand.Create(() => RefuelVehicle());
+        
+        IsFuelButtonEnabled = (vehicle.Status != VehicleStatus.InRoute);
 
     }
 
@@ -42,7 +54,22 @@ public class VehicleItemViewModel : ViewModelBase
     
     public void UpdateVechicleStatus(VehicleStatus newStatus)
     {
+        
+        IsFuelButtonEnabled = (newStatus != VehicleStatus.InRoute);
+        
         _vehicle.Status = newStatus;
+        
         this.RaisePropertyChanged(nameof(Status));
+        this.RaisePropertyChanged(nameof(IsFuelButtonEnabled));
+        
+    }
+
+    public void RefuelVehicle()
+    {
+        _vehicle.FuelPercentage = 100;
+        
+        this.RaisePropertyChanged(nameof(Fuel));
+        this.RaisePropertyChanged(nameof(FuelDisplay));
+        this.RaisePropertyChanged(nameof(FuelColor));
     }
 }

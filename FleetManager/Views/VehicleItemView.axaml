@@ -4,7 +4,7 @@
              x:Class="FleetManager.Views.VehicleItemView"
              x:DataType="vm:VehicleItemViewModel">
 
-    <StackPanel>
+    <StackPanel >
         <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
             <TextBlock Text="{Binding Id}"
                        Width="70"
@@ -31,9 +31,11 @@
                        VerticalAlignment="Center"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}"/>
+            <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}" IsEnabled="{Binding IsRouteButtonEnabled}"/>
             <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}"/>
             <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}"/>
         </StackPanel>
+        
+        <Button Content="zatankuj"  Command="{Binding RefuelVehicleCommand}" IsEnabled="{Binding IsFuelButtonEnabled}"/>
     </StackPanel>
 </UserControl>
