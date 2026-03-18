@@ -2,40 +2,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="using:FleetManager.ViewModels"
              x:Class="FleetManager.Views.VehicleItemView"
-             x:DataType="vm:VehicleItemViewModel">
+             x:DataType="vm:VehicleItemViewModel"
+             >
 
-    <StackPanel >
-        <StackPanel Orientation="Horizontal" Spacing="16" Margin="4">
-            <TextBlock Text="{Binding Id}"
-                       Width="70"
-                       VerticalAlignment="Center"/>
+    
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Text="{Binding Id}"
+                   Grid.Column="0"
+                   FontSize="22"
+                   FontWeight="Light"
+                   FontStyle="Italic"
+                   VerticalAlignment="Center"/>
 
             <TextBlock Text="{Binding Name}"
-                       Width="160"
+                       Grid.Column="1"
+                       FontSize="25"
+                       FontWeight="ExtraBold"
                        VerticalAlignment="Center"/>
 
-            <StackPanel VerticalAlignment="Center" Spacing="2">
-                <ProgressBar Minimum="0"
-                            Maximum="100"
-                            Value="{Binding Fuel}"
-                            Width="150"
-                            Height="12"
-                            Foreground="{Binding FuelColor}"/>
-                <TextBlock Text="{Binding FuelDisplay}"
+            
+                <ProgressBar Grid.Column="2" 
+                             Minimum="0"
+                             Maximum="100"
+                             Width="100"
+                             Height="15"
+                             Value="{Binding Fuel}"
+                             Foreground="{Binding FuelColor}"/>
+                <TextBlock Grid.Column="3"   
+                           VerticalAlignment="Center"
+                           Margin="10 0 0 0 "
+                           Text="{Binding FuelDisplay}"
                            Foreground="{Binding FuelColor}"
-                           FontSize="11"/>
-            </StackPanel>
+                           FontSize="18"
+                           FontStyle="Italic"
+                           />
+            
 
             <TextBlock Text="{Binding Status}"
-                       Width="80"
+                       Grid.Column="4"
+                       FontSize="22"
+                       FontWeight="DemiBold"
                        VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}" IsEnabled="{Binding IsRouteButtonEnabled}"/>
-            <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}" IsEnabled="{Binding IsServiceButtonEnabled}"/>
-            <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}" IsEnabled="{Binding IsAvaiableButtonEnabled}"/>
+        
+        <StackPanel Orientation="Vertical" Grid.Column="5" Spacing="12" VerticalAlignment="Center">
+            <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}" 
+                    IsEnabled="{Binding IsRouteButtonEnabled}" 
+                    Width="130"
+                    HorizontalContentAlignment="Center"
+                    Background="Indigo"
+                    Foreground="AliceBlue"
+                    />
+            <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}" 
+                    IsEnabled="{Binding IsServiceButtonEnabled}" 
+                    Width="130"
+                    HorizontalContentAlignment="Center"
+                    Background="SteelBlue"
+                    Foreground="AliceBlue"
+                    />
+            <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}" 
+                    IsEnabled="{Binding IsAvaiableButtonEnabled}" 
+                    Width="130"
+                    HorizontalContentAlignment="Center"
+                    Background="Green"
+                    Foreground="AliceBlue"
+                    />
         </StackPanel>
         
-        <Button Content="zatankuj"  Command="{Binding RefuelVehicleCommand}" IsEnabled="{Binding IsFuelButtonEnabled}"/>
-    </StackPanel>
+        <Button Grid.Column="6"  
+            Content="zatankuj"  
+            Command="{Binding RefuelVehicleCommand}" 
+            IsEnabled="{Binding IsFuelButtonEnabled}"
+            Height="130"
+            Width="130"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="20" 
+            Background="Orange"
+            Foreground="AliceBlue"
+            />
+    
+    </Grid>
 </UserControl>

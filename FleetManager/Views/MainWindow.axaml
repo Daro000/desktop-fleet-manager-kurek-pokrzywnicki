@@ -8,16 +8,39 @@
         x:Class="FleetManager.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="FleetManager">
-
-    
+        Title="FleetManager"
+        WindowState="Maximized"
+        >
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    <StackPanel>
-        <Button Content="Zapisz wszystkie zmiany do pliku json" Command="{Binding SaveVehicleCommand}" />
     
-        <ListBox ItemsSource="{Binding Vehicles}"
+    <StackPanel Background="#2b2b2b">
+        <TextBlock 
+            Text="Vehicle Manager"
+            Padding="20"
+            FontSize="30"
+            TextAlignment="Center"
+            Background="Crimson"
+            Foreground="AliceBlue"
+            />
+        
+        
+        <Button 
+            Content="Zapisz wszystkie zmiany!!!" 
+                Command="{Binding SaveVehicleCommand}" 
+                Width="1600"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="10"
+                Background="DarkOrange"
+                Foreground="AliceBlue"
+            FontSize="35"
+            />
+    
+        <ListBox Height="800" Width="1600" Margin="10 0 10 10" Background="#1D1D1D"
+            ItemsSource="{Binding Vehicles}"
                 SelectedItem="{Binding SelectedVehicle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
