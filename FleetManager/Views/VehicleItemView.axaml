@@ -32,8 +32,8 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Content="W Trase" Command="{Binding VehicleInRoutCommand}" IsEnabled="{Binding IsRouteButtonEnabled}"/>
-            <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}"/>
-            <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}"/>
+            <Button Content="Do servisu" Command="{Binding VehicleInServiceCommand}" IsEnabled="{Binding IsServiceButtonEnabled}"/>
+            <Button Content="Do Bazy" Command="{Binding VehicleInAvailableCommand}" IsEnabled="{Binding IsAvaiableButtonEnabled}"/>
         </StackPanel>
         
         <Button Content="zatankuj"  Command="{Binding RefuelVehicleCommand}" IsEnabled="{Binding IsFuelButtonEnabled}"/>
